@@ -100,22 +100,22 @@ const modulesData = [
 // Lezioni dettagliate
 const lessonsData = {
     'mod1': [
-        { id: 'l1', title: 'Lettere A-E', duration: '8 min', xp: 40, completed: true, signs: ['a', 'b', 'c', 'd', 'e'] },
-        { id: 'l2', title: 'Lettere F-J', duration: '8 min', xp: 40, completed: true, signs: ['f', 'g', 'h', 'i', 'l'] },
+        { id: 'l1', title: 'Lettere A-E', duration: '2 min', xp: 40, completed: true, signs: ['a', 'b', 'c', 'd', 'e'] },
+        { id: 'l2', title: 'Lettere F-J', duration: '2 min', xp: 40, completed: true, signs: ['f', 'g', 'h', 'i', 'l'] },
         { id: 'l2q', title: 'Ripasso A-J', duration: '4 min', xp: 25, completed: false, isTest: true, quiz: [
             { question: 'Quale lettera si fa con mano aperta e dita verso l\'alto?', options: ['B', 'F', 'L'], correct: 0, icon: 'fa-b' },
             { question: 'Quale segno usa il mignolo in alto?', options: ['I', 'C', 'T'], correct: 0, icon: 'fa-i' },
             { question: 'Quale lettera forma una L con pollice e indice?', options: ['D', 'L', 'R'], correct: 1, icon: 'fa-l' }
         ] },
-        { id: 'l3', title: 'Lettere K-O', duration: '8 min', xp: 40, completed: false, current: true, signs: ['m', 'n', 'o', 'p', 'q'] },
-        { id: 'l4', title: 'Lettere P-T', duration: '8 min', xp: 40, completed: false, signs: ['r', 's', 't', 'u', 'v'] },
+        { id: 'l3', title: 'Lettere K-O', duration: '2 min', xp: 40, completed: false, current: true, signs: ['m', 'n', 'o', 'p', 'q'] },
+        { id: 'l4', title: 'Lettere P-T', duration: '2 min', xp: 40, completed: false, signs: ['r', 's', 't', 'u', 'v'] },
         { id: 'l4q', title: 'Ripasso K-T', duration: '4 min', xp: 25, completed: false, isTest: true, quiz: [
             { question: 'Quale lettera si fa con tre dita sul pollice?', options: ['M', 'N', 'S'], correct: 0, icon: 'fa-m' },
             { question: 'Quale lettera è un pugno chiuso semplice?', options: ['S', 'Q', 'U'], correct: 0, icon: 'fa-s' },
             { question: 'Quale lettera usa pollice tra indice e medio?', options: ['R', 'T', 'V'], correct: 1, icon: 'fa-t' }
         ] },
-        { id: 'l5', title: 'Lettere U-Z', duration: '8 min', xp: 40, completed: false, signs: ['w', 'x', 'y', 'z'] },
-        { id: 'l6', title: 'Test Finale', duration: '10 min', xp: 100, completed: false, isTest: true, quiz: [
+        { id: 'l5', title: 'Lettere U-Z', duration: '2 min', xp: 40, completed: false, signs: ['w', 'x', 'y', 'z'] },
+        { id: 'l6', title: 'Test Finale', duration: '4 min', xp: 100, completed: false, isTest: true, quiz: [
             { question: 'Quale lettera mostra tre dita in su separate?', options: ['W', 'V', 'Y'], correct: 0, icon: 'fa-w' },
             { question: 'Quale lettera ha l\'indice a uncino?', options: ['X', 'Z', 'G'], correct: 0, icon: 'fa-x' },
             { question: 'Quale lettera estende pollice e mignolo?', options: ['Y', 'L', 'O'], correct: 0, icon: 'fa-y' },
@@ -123,33 +123,33 @@ const lessonsData = {
         ] }
     ],
     'mod2': [
-        { id: 'l7', title: 'Ciao e Arrivederci', duration: '6 min', xp: 30, completed: true, signs: ['ciao'] },
-        { id: 'l8', title: 'Grazie e Prego', duration: '5 min', xp: 25, completed: false, current: true, signs: ['grazie', 'prego'] },
-        { id: 'l8q', title: 'Ripasso saluti', duration: '3 min', xp: 20, completed: false, isTest: true, quiz: [
+        { id: 'l7', title: 'Ciao e Arrivederci', duration: '1 min', xp: 30, completed: true, signs: ['ciao'] },
+        { id: 'l8', title: 'Grazie e Prego', duration: '1 min', xp: 25, completed: false, current: true, signs: ['grazie', 'prego'] },
+        { id: 'l8q', title: 'Ripasso saluti', duration: '2 min', xp: 20, completed: false, isTest: true, quiz: [
             { question: 'Quale gesto significa "Ciao"?', options: ['Mano dal mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-hand' },
             { question: 'Quale gesto significa "Grazie"?', options: ['Dalla bocca in avanti', 'Dal petto verso fuori', 'Indice in alto'], correct: 0, icon: 'fa-heart' }
         ] },
-        { id: 'l9', title: 'SÃ¬ e No', duration: '5 min', xp: 25, completed: false, signs: ['si', 'no'] },
-        { id: 'l10', title: 'Come stai?', duration: '8 min', xp: 40, completed: false, signs: ['ciao', 'grazie', 'si', 'no'] },
-        { id: 'l10q', title: 'Test Finale Saluti', duration: '6 min', xp: 50, completed: false, isTest: true, quiz: [
+        { id: 'l9', title: 'SÃ¬ e No', duration: '1 min', xp: 25, completed: false, signs: ['si', 'no'] },
+        { id: 'l10', title: 'Come stai?', duration: '1 min', xp: 40, completed: false, signs: ['ciao', 'grazie', 'si', 'no'] },
+        { id: 'l10q', title: 'Test Finale Saluti', duration: '2 min', xp: 50, completed: false, isTest: true, quiz: [
             { question: 'Quale segno indica "Sì"?', options: ['Pugno che annuisce', 'Indici incrociati', 'Mano dal mento'], correct: 0, icon: 'fa-check' },
             { question: 'Quale segno indica "No"?', options: ['Pugno chiuso', 'Indici incrociati', 'Pollice sul mento'], correct: 1, icon: 'fa-xmark' },
             { question: 'Quale coppia appartiene ai saluti di base?', options: ['Mamma e Papà', 'Grazie e Prego', 'Zero e Uno'], correct: 1, icon: 'fa-comments' }
         ] }
     ],
     'mod3': [
-        { id: 'l11', title: 'Numeri 0-2', duration: '5 min', xp: 25, completed: false, signs: ['num0', 'num1', 'num2'] },
-        { id: 'l12', title: 'Numeri 3-5', duration: '5 min', xp: 25, completed: false, signs: ['num3', 'num4', 'num5'] },
-        { id: 'l13', title: 'Test Numeri', duration: '8 min', xp: 50, completed: false, isTest: true, quiz: [
+        { id: 'l11', title: 'Numeri 0-2', duration: '2 min', xp: 25, completed: false, signs: ['num0', 'num1', 'num2'] },
+        { id: 'l12', title: 'Numeri 3-5', duration: '2 min', xp: 25, completed: false, signs: ['num3', 'num4', 'num5'] },
+        { id: 'l13', title: 'Test Numeri', duration: '4 min', xp: 50, completed: false, isTest: true, quiz: [
             { question: 'Quale numero forma una O?', options: ['0', '3', '5'], correct: 0, icon: 'fa-0' },
             { question: 'Quale numero usa indice e medio in su?', options: ['1', '2', '4'], correct: 1, icon: 'fa-2' },
             { question: 'Quale numero mostra mano aperta?', options: ['3', '4', '5'], correct: 2, icon: 'fa-5' }
         ] }
     ],
     'mod4': [
-        { id: 'l14', title: 'Famiglia I', duration: '6 min', xp: 30, completed: false, signs: ['mamma', 'papa'] },
-        { id: 'l15', title: 'Famiglia II', duration: '6 min', xp: 30, completed: false, signs: ['fratello', 'sorella'] },
-        { id: 'l16', title: 'Test Famiglia', duration: '8 min', xp: 50, completed: false, isTest: true, quiz: [
+        { id: 'l14', title: 'Famiglia I', duration: '2 min', xp: 30, completed: false, signs: ['mamma', 'papa'] },
+        { id: 'l15', title: 'Famiglia II', duration: '2 min', xp: 30, completed: false, signs: ['fratello', 'sorella'] },
+        { id: 'l16', title: 'Test Famiglia', duration: '4 min', xp: 50, completed: false, isTest: true, quiz: [
             { question: 'Quale gesto indica "Mamma"?', options: ['Pollice sul mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-person-dress' },
             { question: 'Quale gesto indica "Papà"?', options: ['Pollice sulla fronte', 'Mano sul petto', 'Cerchio con le dita'], correct: 0, icon: 'fa-person' },
             { question: 'Quale coppia appartiene al modulo famiglia?', options: ['Fratello e Sorella', 'Ciao e Grazie', 'Uno e Due'], correct: 0, icon: 'fa-users' }
