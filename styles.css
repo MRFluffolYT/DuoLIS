@@ -35,6 +35,10 @@ body {
     overflow-x: hidden;
 }
 
+body.lesson-player-open {
+    overflow: hidden;
+}
+
 body.onboarding-open {
     overflow: hidden;
 }
@@ -308,6 +312,11 @@ body.onboarding-open {
 .app {
     min-height: 100vh;
     padding-bottom: 80px;
+}
+
+body.lesson-player-open .app {
+    height: 100svh;
+    padding-bottom: 0;
 }
 
 .app.hidden {
@@ -3248,6 +3257,14 @@ body.onboarding-open {
         linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
+#lesson-player.active {
+    display: flex;
+    flex-direction: column;
+    height: calc(100svh - 65px);
+    overflow: hidden;
+    padding-bottom: 0;
+}
+
 .lesson-header {
     gap: 0.9rem;
     padding: 1rem 1rem 0.9rem;
@@ -3294,7 +3311,11 @@ body.onboarding-open {
     justify-content: center;
     align-items: flex-start;
     padding: 1.2rem 1rem 7.6rem;
-    min-height: calc(100svh - 176px);
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .lesson-step {
@@ -3538,7 +3559,6 @@ body.onboarding-open {
 
     .lesson-content {
         padding: 0.95rem 0.7rem 7.2rem;
-        min-height: calc(100svh - 168px);
     }
 
     .lesson-kicker-row {
