@@ -203,6 +203,9 @@ let audioContext = null;
 let onboardingDraft = null;
 let onboardingStepIndex = 0;
 let onboardingPositionTimer = null;
+let totalAppTimeMs = 0;
+let appSessionStartedAt = null;
+let appTimeInterval = null;
 let profileSettings = {
     name: 'Studente',
     avatarStyle: 'green',
@@ -221,15 +224,18 @@ function loadUserData() {
             completedLessons = data.completedLessons || [];
             currentLessonModule = data.currentLessonModule || null;
             currentLessonIndex = data.currentLessonIndex || 0;
+            totalAppTimeMs = data.totalAppTimeMs || 0;
         } catch (error) {
             userXP = 0;
             completedLessons = [];
             currentLessonModule = 'mod1';
             currentLessonIndex = 0;
+            totalAppTimeMs = 0;
         }
     } else {
         currentLessonModule = 'mod1';
         currentLessonIndex = 0;
+        totalAppTimeMs = 0;
     }
     if (!savedMemberYear) {
         localStorage.setItem('lisLearnMemberSince', String(new Date().getFullYear()));
@@ -268,7 +274,8 @@ function saveUserData() {
         xp: userXP,
         completedLessons: completedLessons,
         currentLessonModule: currentLessonModule,
-        currentLessonIndex: currentLessonIndex
+        currentLessonIndex: currentLessonIndex,
+        totalAppTimeMs: totalAppTimeMs
     };
     localStorage.setItem('lisLearnData', JSON.stringify(data));
 }
@@ -286,6 +293,56 @@ function updateMemberSince() {
     if (!memberSince) return;
     var year = localStorage.getItem('lisLearnMemberSince') || String(new Date().getFullYear());
     memberSince.textContent = 'Membro dal ' + year;
+}
+
+function getCurrentTrackedAppTimeMs() {
+    if (!appSessionStartedAt) return totalAppTimeMs;
+    return totalAppTimeMs + (Date.now() - appSessionStartedAt);
+}
+
+function formatTrackedTime(totalMs) {
+    var totalMinutes = Math.max(0, Math.floor(totalMs / 60000));
+    if (totalMinutes >= 60) {
+        return Math.floor(totalMinutes / 60) + 'h ' + (totalMinutes % 60) + 'm';
+    }
+    return totalMinutes + ' min';
+}
+
+function pauseAppTimeTracking() {
+    if (appSessionStartedAt) {
+        totalAppTimeMs += Date.now() - appSessionStartedAt;
+        appSessionStartedAt = null;
+        saveUserData();
+    }
+    if (appTimeInterval) {
+        clearInterval(appTimeInterval);
+        appTimeInterval = null;
+    }
+    updateStats();
+}
+
+function startAppTimeTracking() {
+    if (document.hidden || appSessionStartedAt) return;
+    appSessionStartedAt = Date.now();
+    if (appTimeInterval) {
+        clearInterval(appTimeInterval);
+    }
+    appTimeInterval = setInterval(function() {
+        updateStats();
+    }, 30000);
+}
+
+function registerAppTimeTracking() {
+    startAppTimeTracking();
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            pauseAppTimeTracking();
+        } else {
+            startAppTimeTracking();
+        }
+    });
+    window.addEventListener('pagehide', pauseAppTimeTracking);
+    window.addEventListener('beforeunload', pauseAppTimeTracking);
 }
 
 function registerPWA() {
@@ -319,6 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderDictionary();
     renderLeaderboard();
     updateStats();
+    registerAppTimeTracking();
     registerPWA();
 });
 
@@ -1258,14 +1316,12 @@ function renderLeaderboard() {
 function updateStats() {
     var level = Math.floor(userXP / 1000) + 1;
     var signsLearned = 0;
-    var totalMinutes = 0;
     for (var i = 0; i < completedLessons.length; i++) {
         for (var modId in lessonsData) {
             var lessons = lessonsData[modId];
             for (var j = 0; j < lessons.length; j++) {
                 if (lessons[j].id === completedLessons[i]) {
                     signsLearned += (lessons[j].signs || []).length;
-                    totalMinutes += parseInt(lessons[j].duration, 10) || 0;
                 }
             }
         }
@@ -1279,7 +1335,7 @@ function updateStats() {
     document.getElementById('streak-count').textContent = streak;
     document.getElementById('stat-signs').textContent = signsLearned;
     document.getElementById('stat-lessons').textContent = completedLessons.length;
-    document.getElementById('stat-time').textContent = totalMinutes >= 60 ? (Math.floor(totalMinutes / 60) + 'h ' + (totalMinutes % 60) + 'm') : (totalMinutes + ' min');
+    document.getElementById('stat-time').textContent = formatTrackedTime(getCurrentTrackedAppTimeMs());
     document.getElementById('user-level').textContent = level;
     document.getElementById('profile-level-stat').textContent = level;
     document.getElementById('profile-signs-stat').textContent = signsLearned;
@@ -1799,15 +1855,20 @@ function resetProgress() {
         completedLessons = [];
         currentLessonModule = 'mod1';
         currentLessonIndex = 0;
+        totalAppTimeMs = 0;
+        appSessionStartedAt = null;
+        if (appTimeInterval) {
+            clearInterval(appTimeInterval);
+            appTimeInterval = null;
+        }
         resetProfileSettingsToDefault();
 
         updateUI();
         renderLearningPath();
         updateStats();
         openOnboarding();
+        startAppTimeTracking();
 
         showNotification('Progressi resettati!', 'info');
     }
 }
-
-
