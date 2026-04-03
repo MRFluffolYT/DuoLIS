@@ -1,0 +1,30 @@
+{
+  "name": "DuoLIS - Impara la Lingua dei Segni",
+  "short_name": "DuoLIS",
+  "description": "App per imparare la Lingua dei Segni Italiana (LIS)",
+  "id": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#64cf35",
+  "orientation": "portrait",
+  "scope": "./",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "lifestyle"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

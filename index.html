@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#64cf35">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="DuoLIS">
+    <title>DuoLIS - Impara la Lingua dei Segni</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="logo-animation">
+                <i class="fa-sharp fa-solid fa-hands"></i>
+            </div>
+            <h1>DuoLIS</h1>
+            <p>Impara la Lingua dei Segni Italiana</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="onboarding-screen" class="onboarding-screen hidden">
+        <div id="onboarding-highlight" class="onboarding-highlight" aria-hidden="true"></div>
+        <div class="onboarding-tooltip">
+            <div class="onboarding-tooltip-head">
+                <span class="onboarding-step" id="onboarding-step-count">1 / 6</span>
+                <button class="onboarding-skip" onclick="skipOnboarding()">Salta</button>
+            </div>
+            <div class="onboarding-tooltip-body" id="onboarding-tooltip-body">
+                <!-- Popolato da JS -->
+            </div>
+            <div class="onboarding-tooltip-actions">
+                <button class="btn-secondary onboarding-back" id="onboarding-back-btn" onclick="previousOnboardingStep()">Indietro</button>
+                <button class="btn-primary" id="onboarding-next-btn" onclick="nextOnboardingStep()">Continua</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Container -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-small">
+                    <i class="fa-sharp fa-solid fa-hands"></i>
+                    <span>DuoLIS</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="streak">
+                    <i class="fas fa-fire"></i>
+                    <span id="streak-count">5</span>
+                </div>
+                <div class="points">
+                    <i class="fas fa-star"></i>
+                    <span id="points-count">1,250</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-sharp fa-solid fa-hands"></i>
+                    <span>DuoLIS</span>
+                </div>
+                <button class="close-btn" onclick="toggleMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-menu">
+                <a href="#" class="menu-item active" onclick="showSection('home'); return false;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showSection('lessons'); return false;">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Lezioni</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showSection('dictionary'); return false;">
+                    <i class="fas fa-book"></i>
+                    <span>Dizionario</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showSection('practice'); return false;">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Quiz</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showSection('progress'); return false;">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progressi</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showSection('profile'); return false;">
+                    <i class="fas fa-user"></i>
+                    <span>Profilo</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- HOME SECTION -->
+            <section id="home" class="section active">
+                <div class="learning-path">
+                    <div class="path-lines" id="path-lines" aria-hidden="true"></div>
+                    <div class="path-container" id="learning-path-container">
+                        <!-- Popolato da JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- LESSONS SECTION -->
+            <section id="lessons" class="section">
+                <div class="section-title">
+                    <h2>Lezioni LIS</h2>
+                    <p>Scegli un modulo per iniziare</p>
+                </div>
+
+                <div class="section-header">
+                    <h3>Tutti i moduli</h3>
+                </div>
+
+                <div class="modules-grid" id="modules-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="section-header" style="margin-top: 1.5rem;">
+                    <h3>Lista lezioni</h3>
+                </div>
+
+                <div class="lessons-list" id="lessons-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- LESSON PLAYER SECTION -->
+            <section id="lesson-player" class="section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="lesson-progress-header">
+                        <div class="lesson-progress-bar">
+                            <div class="lesson-progress-fill" id="lesson-progress-fill"></div>
+                        </div>
+                        <span id="lesson-progress-text">1/5</span>
+                    </div>
+                    <button class="lesson-close" onclick="closeLesson()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="lesson-content" id="lesson-content">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="lesson-navigation">
+                    <button class="nav-btn prev" id="prev-btn" onclick="previousStep()">
+                        <i class="fas fa-arrow-left"></i>
+                        Precedente
+                    </button>
+                    <button class="nav-btn next" id="next-btn" onclick="nextStep()">
+                        Continua
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- DICTIONARY SECTION -->
+            <section id="dictionary" class="section">
+                <div class="section-title">
+                    <h2>Dizionario LIS</h2>
+                    <p>Cerca e impara nuovi segni</p>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Cerca un segno..." onkeyup="searchSigns()">
+                    </div>
+                </div>
+
+                <div class="dictionary-categories">
+                    <button class="category-btn active" onclick="filterCategory('all')">Tutti</button>
+                    <button class="category-btn" onclick="filterCategory('alphabet')">Alfabeto</button>
+                    <button class="category-btn" onclick="filterCategory('numbers')">Numeri</button>
+                    <button class="category-btn" onclick="filterCategory('greetings')">Saluti</button>
+                    <button class="category-btn" onclick="filterCategory('family')">Famiglia</button>
+                </div>
+
+                <div class="dictionary-grid" id="dictionary-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- PRACTICE SECTION -->
+            <section id="practice" class="section">
+                <div class="section-title">
+                    <h2>Esercizi</h2>
+                    <p>Metti alla prova le tue conoscenze</p>
+                </div>
+
+                <div class="practice-modes">
+                    <div class="practice-card" onclick="startQuiz('multiple-choice')">
+                        <div class="practice-icon quiz">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+                        <h4>Quiz a scelta multipla</h4>
+                        <p>Scegli il segno corretto tra le opzioni</p>
+                    </div>
+
+                    <div class="practice-card" onclick="startQuiz('memory')">
+                        <div class="practice-icon memory">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Memory Game</h4>
+                        <p>Abbina i segni con le parole</p>
+                    </div>
+
+                    <div class="practice-card" onclick="startQuiz('spelling')">
+                        <div class="practice-icon spelling">
+                            <i class="fas fa-spell-check"></i>
+                        </div>
+                        <h4>Dattilologia</h4>
+                        <p>Compita le parole con l'alfabeto LIS</p>
+                    </div>
+                </div>
+
+                <div class="leaderboard" id="leaderboard">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- PROGRESS SECTION -->
+            <section id="progress" class="section">
+                <div class="section-title">
+                    <h2>I tuoi progressi</h2>
+                </div>
+
+                <div class="level-card">
+                    <div class="level-info">
+                        <div class="level-badge">
+                            <i class="fas fa-crown"></i>
+                            <span id="user-level">3</span>
+                        </div>
+                        <div class="level-details">
+                            <h3>Livello Attuale</h3>
+                            <p>Apprendista LIS</p>
+                        </div>
+                    </div>
+                    <div class="xp-progress">
+                        <div class="xp-header">
+                            <span>Prossimo livello</span>
+                            <span id="xp-text">1,250 / 2,000 XP</span>
+                        </div>
+                        <div class="xp-bar-large">
+                            <div class="xp-fill" id="xp-fill" style="width: 62.5%"></div>
+                        </div>
+                        <p class="xp-remaining" id="xp-remaining">Mancano 750 XP</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon fire">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-value" id="stat-streak">5</div>
+                        <div class="stat-label">Giorni di fila</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon time">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-value" id="stat-time">0 min</div>
+                        <div class="stat-label">Tempo totale</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon signs">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="stat-value" id="stat-signs">48</div>
+                        <div class="stat-label">Segni imparati</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon lessons">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-value" id="stat-lessons">12</div>
+                        <div class="stat-label">Lezioni fatte</div>
+                    </div>
+                </div>
+
+                <div class="progress-overview">
+                    <div class="progress-overview-card">
+                        <span class="overview-label">Completamento</span>
+                        <strong id="completion-rate">0%</strong>
+                        <p id="completion-summary">0 di 0 lezioni completate</p>
+                    </div>
+                    <div class="progress-overview-card">
+                        <span class="overview-label">Prossima lezione</span>
+                        <strong id="current-module-name">Percorso completato</strong>
+                        <p id="current-lesson-name">Non ci sono lezioni in sospeso</p>
+                    </div>
+                </div>
+
+                <div class="module-progress-list" id="module-progress-list">
+                    <!-- Popolato da JS -->
+                </div>
+            </section>
+
+            <!-- PROFILE SECTION -->
+            <section id="profile" class="section">
+                <div class="profile-header">
+                    <div class="profile-avatar" id="profile-avatar">TU</div>
+                    <h2 id="profile-name">Studente</h2>
+                    <p id="member-since">Membro da poco</p>
+                </div>
+
+                <div class="profile-stats-bar">
+                    <div class="profile-stat-item">
+                        <span class="stat-num" id="profile-level-stat">3</span>
+                        <span class="stat-label">Livello</span>
+                    </div>
+                    <div class="profile-stat-item">
+                        <span class="stat-num" id="profile-signs-stat">48</span>
+                        <span class="stat-label">Segni</span>
+                    </div>
+                    <div class="profile-stat-item">
+                        <span class="stat-num" id="profile-lessons-stat">12</span>
+                        <span class="stat-label">Lezioni</span>
+                    </div>
+                </div>
+
+                <div class="profile-menu">
+                    <a href="#" class="profile-menu-item" onclick="openProfileCustomization(); return false;">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Modifica profilo</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="profile-menu-item" onclick="showSection('progress'); return false;">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Statistiche</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="profile-menu-item" onclick="resetProgress(); return false;">
+                        <i class="fas fa-trash-alt" style="color: var(--danger);"></i>
+                        <span style="color: var(--danger);">Resetta progressi</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section id="profile-customize" class="section">
+                <div class="section-title">
+                    <h2>Personalizza profilo</h2>
+                    <p>Modifica nome, avatar e preferenze dell'app</p>
+                </div>
+
+                <div class="profile-editor-card">
+                    <div class="profile-editor-preview">
+                        <div class="profile-avatar preview" id="profile-avatar-preview">DU</div>
+                        <div>
+                            <h3 id="profile-preview-name">Studente</h3>
+                            <p>Anteprima profilo DuoLIS</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-editor-group">
+                        <label for="profile-name-input">Nome</label>
+                        <input id="profile-name-input" type="text" maxlength="20" placeholder="Il tuo nome" oninput="updateProfilePreview()">
+                    </div>
+
+                    <div class="profile-editor-group">
+                        <span>Stile avatar</span>
+                        <div class="avatar-style-grid">
+                            <button class="avatar-style-option active" data-color="green" onclick="selectAvatarStyle('green'); return false;">
+                                <span class="avatar-style-swatch green"><i class="fas fa-hand-sparkles"></i></span>
+                                <strong>Verde</strong>
+                            </button>
+                            <button class="avatar-style-option" data-color="blue" onclick="selectAvatarStyle('blue'); return false;">
+                                <span class="avatar-style-swatch blue"><i class="fas fa-book-open"></i></span>
+                                <strong>Blu</strong>
+                            </button>
+                            <button class="avatar-style-option" data-color="gold" onclick="selectAvatarStyle('gold'); return false;">
+                                <span class="avatar-style-swatch gold"><i class="fas fa-star"></i></span>
+                                <strong>Oro</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="profile-editor-group">
+                        <div class="settings-toggle-row">
+                            <div>
+                                <strong>Suoni app</strong>
+                                <p>Feedback leggero per tap, quiz e completamento</p>
+                            </div>
+                            <label class="sound-toggle">
+                                <input id="sound-enabled-input" type="checkbox" onchange="updateProfilePreview()">
+                                <span class="sound-toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="profile-editor-actions">
+                        <button class="btn-secondary" onclick="closeProfileCustomization()">Annulla</button>
+                        <button class="btn-primary" onclick="saveProfileCustomization()">Salva profilo</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" onclick="showSection('home'); return false;">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('lessons'); return false;">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Lezioni</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('dictionary'); return false;">
+                <i class="fas fa-book"></i>
+                <span>Dizionario</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('practice'); return false;">
+                <i class="fas fa-gamepad"></i>
+                <span>Quiz</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('profile'); return false;">
+                <i class="fas fa-user"></i>
+                <span>Profilo</span>
+            </a>
+        </nav>
+
+        <!-- SIGN DETAIL MODAL -->
+        <div id="sign-modal" class="modal">
+            <div class="modal-content sign-modal-content">
+                <div class="modal-header">
+                    <button class="modal-back" onclick="closeSignModal()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h3 id="modal-title">Dettaglio segno</h3>
+                </div>
+                <div class="sign-detail">
+                    <div class="sign-video-container">
+                        <div class="sign-video" id="sign-video-display">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                    </div>
+                    <div class="sign-info-detail">
+                        <h2 id="sign-name">Ciao</h2>
+                        <div class="sign-category" id="sign-category">Saluti</div>
+                        <div class="sign-description" id="sign-description">
+                            Movimento della mano dal mento verso l'esterno.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-primary" onclick="practiceThisSign()">
+                        <i class="fas fa-play"></i>
+                        Esercitati
+                    </button>
+                    <button class="btn-secondary" onclick="closeSignModal()">
+                        Chiudi
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ MODAL -->
+        <div id="quiz-modal" class="modal quiz-modal-full">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <button class="quiz-close" onclick="closeQuiz()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="quiz-progress-container">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                        </div>
+                        <span class="quiz-counter" id="quiz-counter">1/5</span>
+                    </div>
+                </div>
+                <div class="quiz-content" id="quiz-content-area">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTIFICATION CONTAINER -->
+        <div id="notification-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
