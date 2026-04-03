@@ -1,48 +1,48 @@
-﻿// ============================================
+// ============================================
 // LIS Learn - App Funzionante
 // ============================================
 
 // Dati dei segni LIS
 const signsData = [
-    { id: 'a', name: 'A', category: 'alphabet', icon: 'fa-font', desc: 'Pugno chiuso, pollice sul lato' },
-    { id: 'b', name: 'B', category: 'alphabet', icon: 'fa-bold', desc: 'Mano aperta, dita verso l\'alto' },
-    { id: 'c', name: 'C', category: 'alphabet', icon: 'fa-copyright', desc: 'Forma una C con le dita' },
-    { id: 'd', name: 'D', category: 'alphabet', icon: 'fa-text-height', desc: 'Indice in su, altre dita chiuse' },
-    { id: 'e', name: 'E', category: 'alphabet', icon: 'fa-closed-captioning', desc: 'Pugno chiuso, dita toccano il pollice' },
-    { id: 'f', name: 'F', category: 'alphabet', icon: 'fa-fist-raised', desc: 'Indice e pollice aperti a cerchio' },
-    { id: 'g', name: 'G', category: 'alphabet', icon: 'fa-hand-point-right', desc: 'Indice puntato, pollice in alto' },
-    { id: 'h', name: 'H', category: 'alphabet', icon: 'fa-hand-scissors', desc: 'Due dita estese in avanti' },
-    { id: 'i', name: 'I', category: 'alphabet', icon: 'fa-hand-point-up', desc: 'Mignolo in alto' },
-    { id: 'l', name: 'L', category: 'alphabet', icon: 'fa-angle-right', desc: 'Pollice e indice a L' },
-    { id: 'm', name: 'M', category: 'alphabet', icon: 'fa-grip-vertical', desc: 'Tre dita su pollice' },
-    { id: 'n', name: 'N', category: 'alphabet', icon: 'fa-grip-horizontal', desc: 'Due dita su pollice' },
-    { id: 'o', name: 'O', category: 'alphabet', icon: 'fa-circle', desc: 'Forma una O' },
-    { id: 'p', name: 'P', category: 'alphabet', icon: 'fa-hand-point-down', desc: 'Indice puntato giÃ¹' },
-    { id: 'q', name: 'Q', category: 'alphabet', icon: 'fa-thumbtack', desc: 'Indice puntato giÃ¹, pollice laterale' },
-    { id: 'r', name: 'R', category: 'alphabet', icon: 'fa-hand-scissors', desc: 'Indice e medio incrociati' },
-    { id: 's', name: 'S', category: 'alphabet', icon: 'fa-fist-raised', desc: 'Pugno chiuso' },
-    { id: 't', name: 'T', category: 'alphabet', icon: 'fa-hand-rock', desc: 'Pollice tra indice e medio' },
-    { id: 'u', name: 'U', category: 'alphabet', icon: 'fa-hand-spock', desc: 'Indice e medio in su, separati' },
-    { id: 'v', name: 'V', category: 'alphabet', icon: 'fa-hand-peace', desc: 'Indice e medio a V' },
-    { id: 'w', name: 'W', category: 'alphabet', icon: 'fa-hand-sparkles', desc: 'Tre dita in su separate' },
-    { id: 'x', name: 'X', category: 'alphabet', icon: 'fa-times', desc: 'Indice a uncino' },
-    { id: 'y', name: 'Y', category: 'alphabet', icon: 'fa-hand-lizard', desc: 'Pollice e mignolo estesi' },
-    { id: 'z', name: 'Z', category: 'alphabet', icon: 'fa-bolt', desc: 'Indice disegna Z nell\'aria' },
-    { id: 'num0', name: '0', category: 'numbers', icon: 'fa-circle', desc: 'Forma una O' },
-    { id: 'num1', name: '1', category: 'numbers', icon: 'fa-arrow-up', desc: 'Indice in su' },
-    { id: 'num2', name: '2', category: 'numbers', icon: 'fa-hand-scissors', desc: 'Indice e medio in su' },
-    { id: 'num3', name: '3', category: 'numbers', icon: 'fa-hand-sparkles', desc: 'Tre dita in su' },
-    { id: 'num4', name: '4', category: 'numbers', icon: 'fa-grip-vertical', desc: 'Quattro dita in su' },
-    { id: 'num5', name: '5', category: 'numbers', icon: 'fa-hand-paper', desc: 'Mano aperta' },
-    { id: 'ciao', name: 'Ciao', category: 'greetings', icon: 'fa-hand-sparkles', desc: 'Mano aperta dal mento all\'esterno' },
-    { id: 'grazie', name: 'Grazie', category: 'greetings', icon: 'fa-pray', desc: 'Mano dalla bocca in avanti' },
-    { id: 'prego', name: 'Prego', category: 'greetings', icon: 'fa-hand-peace', desc: 'Mano verso il petto' },
+    { id: 'a', name: 'A', category: 'alphabet', icon: 'fa-a', desc: 'Pugno chiuso, pollice sul lato' },
+    { id: 'b', name: 'B', category: 'alphabet', icon: 'fa-b', desc: 'Mano aperta, dita verso l\'alto' },
+    { id: 'c', name: 'C', category: 'alphabet', icon: 'fa-c', desc: 'Forma una C con le dita' },
+    { id: 'd', name: 'D', category: 'alphabet', icon: 'fa-d', desc: 'Indice in su, altre dita chiuse' },
+    { id: 'e', name: 'E', category: 'alphabet', icon: 'fa-e', desc: 'Pugno chiuso, dita toccano il pollice' },
+    { id: 'f', name: 'F', category: 'alphabet', icon: 'fa-f', desc: 'Indice e pollice aperti a cerchio' },
+    { id: 'g', name: 'G', category: 'alphabet', icon: 'fa-g', desc: 'Indice puntato, pollice in alto' },
+    { id: 'h', name: 'H', category: 'alphabet', icon: 'fa-h', desc: 'Due dita estese in avanti' },
+    { id: 'i', name: 'I', category: 'alphabet', icon: 'fa-i', desc: 'Mignolo in alto' },
+    { id: 'l', name: 'L', category: 'alphabet', icon: 'fa-l', desc: 'Pollice e indice a L' },
+    { id: 'm', name: 'M', category: 'alphabet', icon: 'fa-m', desc: 'Tre dita su pollice' },
+    { id: 'n', name: 'N', category: 'alphabet', icon: 'fa-n', desc: 'Due dita su pollice' },
+    { id: 'o', name: 'O', category: 'alphabet', icon: 'fa-o', desc: 'Forma una O' },
+    { id: 'p', name: 'P', category: 'alphabet', icon: 'fa-p', desc: 'Indice puntato giÃ¹' },
+    { id: 'q', name: 'Q', category: 'alphabet', icon: 'fa-q', desc: 'Indice puntato giÃ¹, pollice laterale' },
+    { id: 'r', name: 'R', category: 'alphabet', icon: 'fa-r', desc: 'Indice e medio incrociati' },
+    { id: 's', name: 'S', category: 'alphabet', icon: 'fa-s', desc: 'Pugno chiuso' },
+    { id: 't', name: 'T', category: 'alphabet', icon: 'fa-t', desc: 'Pollice tra indice e medio' },
+    { id: 'u', name: 'U', category: 'alphabet', icon: 'fa-u', desc: 'Indice e medio in su, separati' },
+    { id: 'v', name: 'V', category: 'alphabet', icon: 'fa-v', desc: 'Indice e medio a V' },
+    { id: 'w', name: 'W', category: 'alphabet', icon: 'fa-w', desc: 'Tre dita in su separate' },
+    { id: 'x', name: 'X', category: 'alphabet', icon: 'fa-x', desc: 'Indice a uncino' },
+    { id: 'y', name: 'Y', category: 'alphabet', icon: 'fa-y', desc: 'Pollice e mignolo estesi' },
+    { id: 'z', name: 'Z', category: 'alphabet', icon: 'fa-z', desc: 'Indice disegna Z nell\'aria' },
+    { id: 'num0', name: '0', category: 'numbers', icon: 'fa-0', desc: 'Forma una O' },
+    { id: 'num1', name: '1', category: 'numbers', icon: 'fa-1', desc: 'Indice in su' },
+    { id: 'num2', name: '2', category: 'numbers', icon: 'fa-2', desc: 'Indice e medio in su' },
+    { id: 'num3', name: '3', category: 'numbers', icon: 'fa-3', desc: 'Tre dita in su' },
+    { id: 'num4', name: '4', category: 'numbers', icon: 'fa-4', desc: 'Quattro dita in su' },
+    { id: 'num5', name: '5', category: 'numbers', icon: 'fa-5', desc: 'Mano aperta' },
+    { id: 'ciao', name: 'Ciao', category: 'greetings', icon: 'fa-hand', desc: 'Mano aperta dal mento all\'esterno' },
+    { id: 'grazie', name: 'Grazie', category: 'greetings', icon: 'fa-heart', desc: 'Mano dalla bocca in avanti' },
+    { id: 'prego', name: 'Prego', category: 'greetings', icon: 'fa-face-smile', desc: 'Mano verso il petto' },
     { id: 'si', name: 'SÃ¬', category: 'greetings', icon: 'fa-check', desc: 'Pugno che annuisce' },
-    { id: 'no', name: 'No', category: 'greetings', icon: 'fa-times', desc: 'Indici incrociati' },
-    { id: 'mamma', name: 'Mamma', category: 'family', icon: 'fa-female', desc: 'Pollice sul mento' },
-    { id: 'papa', name: 'PapÃ ', category: 'family', icon: 'fa-male', desc: 'Pollice sulla fronte' },
-    { id: 'fratello', name: 'Fratello', category: 'family', icon: 'fa-user', desc: 'Due dita sul petto' },
-    { id: 'sorella', name: 'Sorella', category: 'family', icon: 'fa-user-friends', desc: 'Mano sul petto, movimento circolare' }
+    { id: 'no', name: 'No', category: 'greetings', icon: 'fa-xmark', desc: 'Indici incrociati' },
+    { id: 'mamma', name: 'Mamma', category: 'family', icon: 'fa-person-dress', desc: 'Pollice sul mento' },
+    { id: 'papa', name: 'PapÃ ', category: 'family', icon: 'fa-person', desc: 'Pollice sulla fronte' },
+    { id: 'fratello', name: 'Fratello', category: 'family', icon: 'fa-user-group', desc: 'Due dita sul petto' },
+    { id: 'sorella', name: 'Sorella', category: 'family', icon: 'fa-users', desc: 'Mano sul petto, movimento circolare' }
 ];
 
 // Moduli e lezioni
@@ -57,7 +57,7 @@ const modulesData = [
         lessons: 6,
         progress: 65,
         color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-        icon: 'fa-font'
+        icon: 'fa-a'
     },
     {
         id: 'mod2',
@@ -81,7 +81,7 @@ const modulesData = [
         lessons: 3,
         progress: 0,
         color: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-        icon: 'fa-sort-numeric-up'
+        icon: 'fa-3'
     },
     {
         id: 'mod4',
@@ -103,37 +103,37 @@ const lessonsData = {
         { id: 'l1', title: 'Lettere A-E', duration: '8 min', xp: 40, completed: true, signs: ['a', 'b', 'c', 'd', 'e'] },
         { id: 'l2', title: 'Lettere F-J', duration: '8 min', xp: 40, completed: true, signs: ['f', 'g', 'h', 'i', 'l'] },
         { id: 'l2q', title: 'Ripasso A-J', duration: '4 min', xp: 25, completed: false, isTest: true, quiz: [
-            { question: 'Quale lettera si fa con mano aperta e dita verso l\'alto?', options: ['B', 'F', 'L'], correct: 0, icon: 'fa-bold' },
-            { question: 'Quale segno usa il mignolo in alto?', options: ['I', 'C', 'T'], correct: 0, icon: 'fa-hand-point-up' },
-            { question: 'Quale lettera forma una L con pollice e indice?', options: ['D', 'L', 'R'], correct: 1, icon: 'fa-angle-right' }
+            { question: 'Quale lettera si fa con mano aperta e dita verso l\'alto?', options: ['B', 'F', 'L'], correct: 0, icon: 'fa-b' },
+            { question: 'Quale segno usa il mignolo in alto?', options: ['I', 'C', 'T'], correct: 0, icon: 'fa-i' },
+            { question: 'Quale lettera forma una L con pollice e indice?', options: ['D', 'L', 'R'], correct: 1, icon: 'fa-l' }
         ] },
         { id: 'l3', title: 'Lettere K-O', duration: '8 min', xp: 40, completed: false, current: true, signs: ['m', 'n', 'o', 'p', 'q'] },
         { id: 'l4', title: 'Lettere P-T', duration: '8 min', xp: 40, completed: false, signs: ['r', 's', 't', 'u', 'v'] },
         { id: 'l4q', title: 'Ripasso K-T', duration: '4 min', xp: 25, completed: false, isTest: true, quiz: [
-            { question: 'Quale lettera si fa con tre dita sul pollice?', options: ['M', 'N', 'S'], correct: 0, icon: 'fa-grip-vertical' },
-            { question: 'Quale lettera è un pugno chiuso semplice?', options: ['S', 'Q', 'U'], correct: 0, icon: 'fa-fist-raised' },
-            { question: 'Quale lettera usa pollice tra indice e medio?', options: ['R', 'T', 'V'], correct: 1, icon: 'fa-hand-rock' }
+            { question: 'Quale lettera si fa con tre dita sul pollice?', options: ['M', 'N', 'S'], correct: 0, icon: 'fa-m' },
+            { question: 'Quale lettera è un pugno chiuso semplice?', options: ['S', 'Q', 'U'], correct: 0, icon: 'fa-s' },
+            { question: 'Quale lettera usa pollice tra indice e medio?', options: ['R', 'T', 'V'], correct: 1, icon: 'fa-t' }
         ] },
         { id: 'l5', title: 'Lettere U-Z', duration: '8 min', xp: 40, completed: false, signs: ['w', 'x', 'y', 'z'] },
         { id: 'l6', title: 'Test Finale', duration: '10 min', xp: 100, completed: false, isTest: true, quiz: [
-            { question: 'Quale lettera mostra tre dita in su separate?', options: ['W', 'V', 'Y'], correct: 0, icon: 'fa-hand-sparkles' },
-            { question: 'Quale lettera ha l\'indice a uncino?', options: ['X', 'Z', 'G'], correct: 0, icon: 'fa-times' },
-            { question: 'Quale lettera estende pollice e mignolo?', options: ['Y', 'L', 'O'], correct: 0, icon: 'fa-hand-lizard' },
-            { question: 'Quale lettera disegna una Z nell\'aria?', options: ['N', 'Z', 'C'], correct: 1, icon: 'fa-bolt' }
+            { question: 'Quale lettera mostra tre dita in su separate?', options: ['W', 'V', 'Y'], correct: 0, icon: 'fa-w' },
+            { question: 'Quale lettera ha l\'indice a uncino?', options: ['X', 'Z', 'G'], correct: 0, icon: 'fa-x' },
+            { question: 'Quale lettera estende pollice e mignolo?', options: ['Y', 'L', 'O'], correct: 0, icon: 'fa-y' },
+            { question: 'Quale lettera disegna una Z nell\'aria?', options: ['N', 'Z', 'C'], correct: 1, icon: 'fa-z' }
         ] }
     ],
     'mod2': [
         { id: 'l7', title: 'Ciao e Arrivederci', duration: '6 min', xp: 30, completed: true, signs: ['ciao'] },
         { id: 'l8', title: 'Grazie e Prego', duration: '5 min', xp: 25, completed: false, current: true, signs: ['grazie', 'prego'] },
         { id: 'l8q', title: 'Ripasso saluti', duration: '3 min', xp: 20, completed: false, isTest: true, quiz: [
-            { question: 'Quale gesto significa "Ciao"?', options: ['Mano dal mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-hand-sparkles' },
-            { question: 'Quale gesto significa "Grazie"?', options: ['Dalla bocca in avanti', 'Dal petto verso fuori', 'Indice in alto'], correct: 0, icon: 'fa-pray' }
+            { question: 'Quale gesto significa "Ciao"?', options: ['Mano dal mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-hand' },
+            { question: 'Quale gesto significa "Grazie"?', options: ['Dalla bocca in avanti', 'Dal petto verso fuori', 'Indice in alto'], correct: 0, icon: 'fa-heart' }
         ] },
         { id: 'l9', title: 'SÃ¬ e No', duration: '5 min', xp: 25, completed: false, signs: ['si', 'no'] },
         { id: 'l10', title: 'Come stai?', duration: '8 min', xp: 40, completed: false, signs: ['ciao', 'grazie', 'si', 'no'] },
         { id: 'l10q', title: 'Test Finale Saluti', duration: '6 min', xp: 50, completed: false, isTest: true, quiz: [
             { question: 'Quale segno indica "Sì"?', options: ['Pugno che annuisce', 'Indici incrociati', 'Mano dal mento'], correct: 0, icon: 'fa-check' },
-            { question: 'Quale segno indica "No"?', options: ['Pugno chiuso', 'Indici incrociati', 'Pollice sul mento'], correct: 1, icon: 'fa-times' },
+            { question: 'Quale segno indica "No"?', options: ['Pugno chiuso', 'Indici incrociati', 'Pollice sul mento'], correct: 1, icon: 'fa-xmark' },
             { question: 'Quale coppia appartiene ai saluti di base?', options: ['Mamma e Papà', 'Grazie e Prego', 'Zero e Uno'], correct: 1, icon: 'fa-comments' }
         ] }
     ],
@@ -141,17 +141,17 @@ const lessonsData = {
         { id: 'l11', title: 'Numeri 0-2', duration: '5 min', xp: 25, completed: false, signs: ['num0', 'num1', 'num2'] },
         { id: 'l12', title: 'Numeri 3-5', duration: '5 min', xp: 25, completed: false, signs: ['num3', 'num4', 'num5'] },
         { id: 'l13', title: 'Test Numeri', duration: '8 min', xp: 50, completed: false, isTest: true, quiz: [
-            { question: 'Quale numero forma una O?', options: ['0', '3', '5'], correct: 0, icon: 'fa-circle' },
-            { question: 'Quale numero usa indice e medio in su?', options: ['1', '2', '4'], correct: 1, icon: 'fa-hand-scissors' },
-            { question: 'Quale numero mostra mano aperta?', options: ['3', '4', '5'], correct: 2, icon: 'fa-hand-paper' }
+            { question: 'Quale numero forma una O?', options: ['0', '3', '5'], correct: 0, icon: 'fa-0' },
+            { question: 'Quale numero usa indice e medio in su?', options: ['1', '2', '4'], correct: 1, icon: 'fa-2' },
+            { question: 'Quale numero mostra mano aperta?', options: ['3', '4', '5'], correct: 2, icon: 'fa-5' }
         ] }
     ],
     'mod4': [
         { id: 'l14', title: 'Famiglia I', duration: '6 min', xp: 30, completed: false, signs: ['mamma', 'papa'] },
         { id: 'l15', title: 'Famiglia II', duration: '6 min', xp: 30, completed: false, signs: ['fratello', 'sorella'] },
         { id: 'l16', title: 'Test Famiglia', duration: '8 min', xp: 50, completed: false, isTest: true, quiz: [
-            { question: 'Quale gesto indica "Mamma"?', options: ['Pollice sul mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-female' },
-            { question: 'Quale gesto indica "Papà"?', options: ['Pollice sulla fronte', 'Mano sul petto', 'Cerchio con le dita'], correct: 0, icon: 'fa-male' },
+            { question: 'Quale gesto indica "Mamma"?', options: ['Pollice sul mento', 'Pollice sulla fronte', 'Due dita sul petto'], correct: 0, icon: 'fa-person-dress' },
+            { question: 'Quale gesto indica "Papà"?', options: ['Pollice sulla fronte', 'Mano sul petto', 'Cerchio con le dita'], correct: 0, icon: 'fa-person' },
             { question: 'Quale coppia appartiene al modulo famiglia?', options: ['Fratello e Sorella', 'Ciao e Grazie', 'Uno e Due'], correct: 0, icon: 'fa-users' }
         ] }
     ]
@@ -160,25 +160,25 @@ const lessonsData = {
 // Quiz questions
 const quizSets = {
     'multiple-choice': [
-        { question: 'Quale segno significa "Ciao"?', options: ['Pollice sul mento', 'Mano dal mento', 'Pugno chiuso'], correct: 1, sign: 'fa-hand-sparkles' },
-        { question: 'Come si fa la lettera B?', options: ['Pugno', 'Mano aperta in alto', 'Due dita'], correct: 1, sign: 'fa-bold' },
-        { question: 'Il numero 1 come si forma?', options: ['Mignolo', 'Indice in su', 'Pollice'], correct: 1, sign: 'fa-arrow-up' },
-        { question: 'Quale segno corrisponde alla lettera L?', options: ['Cerchio', 'Angolo retto', 'Linea retta'], correct: 1, sign: 'fa-angle-right' },
-        { question: 'Come si dice "Grazie"?', options: ['Dalla bocca', 'Dalla fronte', 'Dal petto'], correct: 0, sign: 'fa-pray' }
+        { question: 'Quale segno significa "Ciao"?', options: ['Pollice sul mento', 'Mano dal mento', 'Pugno chiuso'], correct: 1, sign: 'fa-hand' },
+        { question: 'Come si fa la lettera B?', options: ['Pugno', 'Mano aperta in alto', 'Due dita'], correct: 1, sign: 'fa-b' },
+        { question: 'Il numero 1 come si forma?', options: ['Mignolo', 'Indice in su', 'Pollice'], correct: 1, sign: 'fa-1' },
+        { question: 'Quale segno corrisponde alla lettera L?', options: ['Cerchio', 'Angolo retto', 'Linea retta'], correct: 1, sign: 'fa-l' },
+        { question: 'Come si dice "Grazie"?', options: ['Dalla bocca', 'Dalla fronte', 'Dal petto'], correct: 0, sign: 'fa-heart' }
     ],
     'memory': [
-        { question: 'Quale coppia devi ricordare per "Mamma"?', options: ['Pollice sul mento', 'Indice in alto', 'Mano aperta'], correct: 0, sign: 'fa-female' },
-        { question: 'Quale gesto richiama "Papà"?', options: ['Pollice sulla fronte', 'Due dita sul petto', 'Cerchio con la mano'], correct: 0, sign: 'fa-male' },
-        { question: 'Quale segno ricordi per "No"?', options: ['Indici incrociati', 'Pugno che annuisce', 'Mano dal mento'], correct: 0, sign: 'fa-times' },
-        { question: 'Quale combinazione rappresenta il numero 3?', options: ['Tre dita in su', 'Pugno chiuso', 'Indice e medio'], correct: 0, sign: 'fa-hand-sparkles' },
-        { question: 'Quale lettera usa indice e pollice aperti a cerchio?', options: ['F', 'L', 'Y'], correct: 0, sign: 'fa-fist-raised' }
+        { question: 'Quale coppia devi ricordare per "Mamma"?', options: ['Pollice sul mento', 'Indice in alto', 'Mano aperta'], correct: 0, sign: 'fa-person-dress' },
+        { question: 'Quale gesto richiama "Papà"?', options: ['Pollice sulla fronte', 'Due dita sul petto', 'Cerchio con la mano'], correct: 0, sign: 'fa-person' },
+        { question: 'Quale segno ricordi per "No"?', options: ['Indici incrociati', 'Pugno che annuisce', 'Mano dal mento'], correct: 0, sign: 'fa-xmark' },
+        { question: 'Quale combinazione rappresenta il numero 3?', options: ['Tre dita in su', 'Pugno chiuso', 'Indice e medio'], correct: 0, sign: 'fa-3' },
+        { question: 'Quale lettera usa indice e pollice aperti a cerchio?', options: ['F', 'L', 'Y'], correct: 0, sign: 'fa-f' }
     ],
     'spelling': [
-        { question: 'Per iniziare a compitare "LIS", quale lettera viene per prima?', options: ['L', 'I', 'S'], correct: 0, sign: 'fa-font' },
-        { question: 'Nella parola "CIAO", quale lettera viene dopo la C?', options: ['A', 'I', 'O'], correct: 1, sign: 'fa-spell-check' },
-        { question: 'Quale lettera completa la sequenza A, B, C, _ ?', options: ['E', 'D', 'F'], correct: 1, sign: 'fa-text-height' },
-        { question: 'Se stai compitando "UNO", quale lettera viene al centro?', options: ['N', 'U', 'O'], correct: 0, sign: 'fa-grip-horizontal' },
-        { question: 'Quale ultima lettera chiude la parola "GRAZIE"?', options: ['A', 'E', 'I'], correct: 1, sign: 'fa-font' }
+        { question: 'Per iniziare a compitare "LIS", quale lettera viene per prima?', options: ['L', 'I', 'S'], correct: 0, sign: 'fa-l' },
+        { question: 'Nella parola "CIAO", quale lettera viene dopo la C?', options: ['A', 'I', 'O'], correct: 1, sign: 'fa-i' },
+        { question: 'Quale lettera completa la sequenza A, B, C, _ ?', options: ['E', 'D', 'F'], correct: 1, sign: 'fa-d' },
+        { question: 'Se stai compitando "UNO", quale lettera viene al centro?', options: ['N', 'U', 'O'], correct: 0, sign: 'fa-n' },
+        { question: 'Quale ultima lettera chiude la parola "GRAZIE"?', options: ['A', 'E', 'I'], correct: 1, sign: 'fa-e' }
     ]
 };
 
@@ -353,6 +353,7 @@ function toggleMenu() {
 }
 
 function prepareSection(sectionId) {
+    document.body.classList.toggle('lesson-player-open', sectionId === 'lesson-player');
     if (sectionId === 'home') {
         renderLearningPath();
     }
@@ -380,6 +381,7 @@ function activateSection(target, sectionId, sections) {
     for (var i = 0; i < sections.length; i++) {
         sections[i].classList.remove('active', 'section-leaving', 'section-entering', 'section-entering-active');
     }
+    document.body.classList.toggle('lesson-player-open', sectionId === 'lesson-player');
     target.classList.add('active');
     if (typeof target.animate === 'function') {
         target.animate([
